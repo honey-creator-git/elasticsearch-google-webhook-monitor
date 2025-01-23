@@ -102,7 +102,7 @@ exports.monitorWebhooks = async () => {
 
         // Step 2: Iterate over matching indices and query expring webhooks
         const currentTime = Date.now();
-        const timeThreshold = currentTime + 5 * 60 * 1000; // 5 minutes before expiration
+        const timeThreshold = new Date(currentTime + 5 * 60 * 1000).toISOString(); // 5 minutes before expiration
 
         for (const index of indices) {
             console.log(`Checking index: ${index}`);
